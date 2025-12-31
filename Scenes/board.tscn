@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://csypvwl87ougr"]
+
+[ext_resource type="Texture2D" uid="uid://c5skv3bra5cts" path="res://Assets/board_green.png" id="1_2wvcj"]
+[ext_resource type="Script" uid="uid://c3y7hys18cabs" path="res://Scripts/Board.cs" id="2_uh3b8"]
+
+[node name="Board" type="Sprite2D"]
+texture = ExtResource("1_2wvcj")
+script = ExtResource("2_uh3b8")
+
+[node name="Pieces" type="Node2D" parent="."]
+position = Vector2(-106.00001, 106.00001)
+scale = Vector2(0.9, 0.9)
+
+[node name="Dots" type="Node2D" parent="."]
+
+[node name="Turn" type="Sprite2D" parent="."]
