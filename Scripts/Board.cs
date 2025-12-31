@@ -11,6 +11,7 @@ public partial class Board : Sprite2D
 		textureHolderScene = ResourceLoader.Load<PackedScene>("res://Scenes/texture_holder.tscn");
 		piecesNode = GetNode<Node2D>("Pieces");
 		pieceMoveTexture = ResourceLoader.Load<Texture2D>("res://Assets/Piece_move.png");
+		dots = GetNode<Node2D>("Dots");
 		LoadPieceTextures();
 		InitBoard();
 
@@ -36,16 +37,16 @@ public partial class Board : Sprite2D
 						{
 							selectedPiecePosition = new Vector2(row, col);
 							isPieceSelected = true;
-							GD.Print($"Selected piece at ({row}, {col})");
+							// GD.Print($"Selected piece at ({row}, {col})");
 							ShowAvailableMove();
 						}
 					}
-					else 
+					else
 					{
-						Vector2 targetPosition = new Vector2(row, col);
-						GD.Print($"Moving piece from ({selectedPiecePosition.X}, {selectedPiecePosition.Y}) to ({targetPosition.X}, {targetPosition.Y})");
+						// Vector2 targetPosition = new Vector2(row, col);
+						// GD.Print($"Moving piece from ({selectedPiecePosition.X}, {selectedPiecePosition.Y}) to ({targetPosition.X}, {targetPosition.Y})");
 						isPieceSelected = false;
-						selectedPiecePosition = new Vector2(-1, -1);
+						// selectedPiecePosition = new Vector2(-1, -1);
 
 					}
 				}

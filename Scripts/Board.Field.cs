@@ -33,4 +33,6 @@ public partial class Board : Sprite2D
     private Array<Vector2> movesAvailable = [];
     private Vector2 selectedPiecePosition = new(-1, -1);
     private Texture2D pieceMoveTexture;
+
+    private Node2D dots;
 }

@@ -1,6 +1,7 @@
 using Godot;
 using Godot.Collections;
 using System;
+using System.Linq;
 using System.Numerics;
 using Vector2 = Godot.Vector2;
 
@@ -36,15 +37,20 @@ public partial class Board : Sprite2D
         {
             Vector2 move = movesAvailable[i];
             Sprite2D holder = textureHolderScene.Instantiate<Sprite2D>();
-            piecesNode.AddChild(holder);
+            dots.AddChild(holder);
             holder.GlobalPosition = new Vector2(move.Y * TILE_SIZE + (TILE_SIZE / 2), -move.X * TILE_SIZE - (TILE_SIZE / 2));
             holder.Texture = pieceMoveTexture;
         }
     }
-    private Array<Vector2> GetMoves()
+
+    private void UndrawPieceMoves()
     {
-        return [];
+        foreach (Node2D child in dots.GetChildren().Cast<Node2D>())
+        {
+            child.QueueFree();
+        }
     }
+
     private void InitBoard()
     {
         board[0, 0] = PieceType.WHITE_ROOK;
@@ -97,6 +103,7 @@ public partial class Board : Sprite2D
             [PieceType.BLACK_QUEEN] = ResourceLoader.Load<Texture2D>("res://Assets/black_queen.png"),
             [PieceType.BLACK_KING] = ResourceLoader.Load<Texture2D>("res://Assets/black_king.png")
         };
+
     }
     private bool IsMouseInsideBoard()
     {
