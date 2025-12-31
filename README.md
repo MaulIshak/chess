@@ -2,7 +2,7 @@
 
 ## Screenshot
 
-![Screenshot](Screenshots/screenshot.png)
+![Screenshot](Screenshots/board_screenshot.png)
 
 ## Board Asset
 
