@@ -29,22 +29,22 @@ public partial class Board : Sprite2D
 					int row = (int)(-mousePosition.Y / TILE_SIZE);
 					int col = (int)(mousePosition.X / TILE_SIZE);
 
-					if (currentSelectState == SelectState.NO_SELECTION)
+					if (!isPieceSelected)
 					{
 						PieceType piece = board[row, col];
 						if (piece != PieceType.EMPTY)
 						{
 							selectedPiecePosition = new Vector2(row, col);
-							currentSelectState = SelectState.PIECE_SELECTED;
+							isPieceSelected = true;
 							GD.Print($"Selected piece at ({row}, {col})");
 							ShowAvailableMove();
 						}
 					}
-					else if (currentSelectState == SelectState.PIECE_SELECTED)
+					else 
 					{
 						Vector2 targetPosition = new Vector2(row, col);
 						GD.Print($"Moving piece from ({selectedPiecePosition.X}, {selectedPiecePosition.Y}) to ({targetPosition.X}, {targetPosition.Y})");
-						currentSelectState = SelectState.NO_SELECTION;
+						isPieceSelected = false;
 						selectedPiecePosition = new Vector2(-1, -1);
 
 					}

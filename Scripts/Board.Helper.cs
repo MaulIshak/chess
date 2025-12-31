@@ -104,5 +104,4 @@ public partial class Board : Sprite2D
                GetGlobalMousePosition().Y <= 0 && GetGlobalMousePosition().Y >= -BOARD_SIZE * TILE_SIZE;
 
     }
-
 }

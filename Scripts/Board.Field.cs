@@ -22,19 +22,13 @@ public partial class Board : Sprite2D
         WHITE_QUEEN,
         WHITE_KING
     }
-    enum SelectState
-    {
-        PIECE_SELECTED,
-        MOVE_SELECTED,
-        NO_SELECTION
-    }
+    private bool isPieceSelected;
     const int BOARD_SIZE = 8;
     const float TILE_SIZE = 22f;
     private Dictionary<PieceType, Texture2D> pieceTextures;
     private PieceType[,] board = new PieceType[BOARD_SIZE, BOARD_SIZE];
     private Node2D piecesNode;
     private PackedScene textureHolderScene;
-    private SelectState currentSelectState = SelectState.NO_SELECTION;
     private bool isWhiteTurn = true;
     private Array<Vector2> movesAvailable = [];
     private Vector2 selectedPiecePosition = new(-1, -1);
